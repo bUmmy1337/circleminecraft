@@ -20,7 +20,7 @@ Here're some of the project's best features:
 
 <p>1. Download Minecraft. It is recommended to use a licensed copy of the game to avoid problems.</p>
 
-<p>2. Install Forge Loader 1.20.1</p>
+<p>2. Install the Forge loader for the version specified in the Releases tab</p>
 
 <p>3. Download the archive from the downloads page</p>
 
