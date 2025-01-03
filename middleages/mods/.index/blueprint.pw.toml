@@ -1,0 +1,16 @@
+filename = 'abnormals_core-1.16.5-3.3.0.jar'
+name = 'Blueprint'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'ac9e8e2204494de09312104625560adeb87c90355d5e05826b9ffc002c19368b463265fb347e561dc9e881c6352c63ab220cd680b4e7bf6e3e4fa362a6b621a4'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/VsM5EDoI/versions/fEmF971j/abnormals_core-1.16.5-3.3.0.jar'
+
+[update.modrinth]
+mod-id = 'VsM5EDoI'
+version = 'fEmF971j'

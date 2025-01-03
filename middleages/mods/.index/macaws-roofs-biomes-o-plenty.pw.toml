@@ -1,0 +1,16 @@
+filename = 'macawsroofsbop-1.16.5-1.9.jar'
+name = "Macaw's Roofs - Biomes O' Plenty"
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'edcfd85202ef3f4993237c688729ee621868ed371d262ff1bbc9a330630d7053d4ca53697119eb68252dcc3fdd8fd11fad092e08ae95c48f51d591fb50c299c0'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/5uSvd1Ca/versions/evKgzJmv/macawsroofsbop-1.16.5-1.9.jar'
+
+[update.modrinth]
+mod-id = '5uSvd1Ca'
+version = 'evKgzJmv'

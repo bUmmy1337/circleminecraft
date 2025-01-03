@@ -1,0 +1,16 @@
+filename = 'mcwfurnituresbop-1.16.5-1.4.jar'
+name = "Macaw's Furnitures - Biomes O' Plenty"
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'cce6edabf0b82ed254765ed05e168eba753bd7186e00b502946078e1ee758919b19b58628953c9a9794e64bf4af771d7eb72094c9fc71d3d898fbcb18aed3b8c'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/XQ6CZtXV/versions/fvYPVcSL/mcwfurnituresbop-1.16.5-1.4.jar'
+
+[update.modrinth]
+mod-id = 'XQ6CZtXV'
+version = 'fvYPVcSL'

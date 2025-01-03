@@ -1,0 +1,16 @@
+filename = 'flywheel-1.16-0.2.5.jar'
+name = 'Flywheel (Legacy)'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = '30dbb119ce3d455bee065c0bef04a00827b3a5b3'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3535459
+project-id = 486392

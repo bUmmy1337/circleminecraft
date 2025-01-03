@@ -1,0 +1,16 @@
+filename = 'FallingTree-1.16.5-2.11.7.jar'
+name = 'FallingTree'
+side = 'server'
+x-prismlauncher-loaders = [ 'forge', 'fabric' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'dd869d79d3e215aaac580ad3659ca1145009a2e5c1569b27e2be14856f8999a7f418e64ade9ab77c8b2c738757ab398522000844b3bce6cc6572bd66bca12765'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/Fb4jn8m6/versions/rK4GkUX6/FallingTree-1.16.5-2.11.7.jar'
+
+[update.modrinth]
+mod-id = 'Fb4jn8m6'
+version = 'rK4GkUX6'

@@ -1,0 +1,16 @@
+filename = 'cloth-config-4.17.101-forge.jar'
+name = 'Cloth Config API'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.4', '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '3a5755660b09408b5cce7ba8232f1edb5d5e5acbed58577da5522e5c84023150445146badd7133346b6abe57d8b22a8f578839c0e9a3df0183c9b860ace17fa4'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/9s6osm5g/versions/i0ExoqTD/cloth-config-4.17.101-forge.jar'
+
+[update.modrinth]
+mod-id = '9s6osm5g'
+version = 'i0ExoqTD'

@@ -1,0 +1,16 @@
+filename = 'SpartanShields-1.16.5-2.1.2.jar'
+name = 'Spartan Shields'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '98195c967ce92270dc320e6c0aec3b4032c3540e39294498c965a56925bfa7bfdd8dd41f5c6187aac213d97c79e381df556f34c5cdeec1221fad06678cfb4fd7'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/W5rjEyqs/versions/2.1.2/SpartanShields-1.16.5-2.1.2.jar'
+
+[update.modrinth]
+mod-id = 'W5rjEyqs'
+version = 'NxUo9uS1'

@@ -1,0 +1,16 @@
+filename = 'entityculling-forge-mc1.16.5-1.5.2.jar'
+name = 'Entity Culling'
+side = 'client'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16', '1.16.1', '1.16.2', '1.16.3', '1.16.4', '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '90d9f430d17701ab41276d5f970f078192e7ef87e57f6d1ca7dcb0710ab5a19c07c5bd9762e1ab5cb4cd46aa391d3ecdadbae405936bb563264ee9155f2fa0bc'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/NNAgCjsB/versions/1.5.2-forge-1.16/entityculling-forge-mc1.16.5-1.5.2.jar'
+
+[update.modrinth]
+mod-id = 'NNAgCjsB'
+version = 'AXYavMt5'

@@ -1,0 +1,16 @@
+filename = 'BetterThirdPerson-Forge-1.16.4-1.5.0.jar'
+name = 'Better Third Person'
+side = 'client'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.4', '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '06ec872329354f4f71662f8400862a9e3e0456080789884d66699ea52169f20fdbb670e89cbc90e02ab73db10f53798ef90f85d38cf736c0cf6ee6d4736b3957'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/G1s2WpNo/versions/v.1.5.0/BetterThirdPerson-Forge-1.16.4-1.5.0.jar'
+
+[update.modrinth]
+mod-id = 'G1s2WpNo'
+version = 'mWho9kLP'

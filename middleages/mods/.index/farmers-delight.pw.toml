@@ -1,0 +1,16 @@
+filename = 'FarmersDelight-1.16.5-0.6.0.jar'
+name = "Farmer's Delight"
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '006e441f80aa2c97787cf9b968926a6b2eb22470'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3765350
+project-id = 398521

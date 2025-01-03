@@ -1,0 +1,16 @@
+filename = 'createplus-1.16.4_v0.3.2.1.jar'
+name = 'Create Goggles (Create Plus)'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.4', '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '6c0cc26e5b387155f32108616ccd86858771e36e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3388486
+project-id = 377835

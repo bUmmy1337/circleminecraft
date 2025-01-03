@@ -1,0 +1,16 @@
+filename = 'create-mc1.16.5_v0.3.2g.jar'
+name = 'Create'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '5b32b0310d037deed14200e3b748bd02d46d9471'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3536025
+project-id = 328085

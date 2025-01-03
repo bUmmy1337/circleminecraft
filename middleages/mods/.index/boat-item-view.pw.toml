@@ -1,0 +1,16 @@
+filename = 'Boat-Item-View-Forge-1.16.5-0.0.2.jar'
+name = 'Boat Item View'
+side = 'client'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '3e2bdc446475097d147b58aea620c623ff160d0482474922ef6be06c2612011ea2a8545fc7bdb2c944618b818f6ae9fe714199ebeeb75b270021b9b36a1b1a5a'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/BdKIyOLe/versions/0.0.2-forge/Boat-Item-View-Forge-1.16.5-0.0.2.jar'
+
+[update.modrinth]
+mod-id = 'BdKIyOLe'
+version = 'olKNoOXZ'

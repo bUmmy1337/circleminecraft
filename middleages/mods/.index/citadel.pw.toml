@@ -1,0 +1,16 @@
+filename = 'citadel-1.8.1-1.16.5.jar'
+name = 'Citadel'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.3', '1.16.4', '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'cf60d0fc6b6d1357832c64d665870f555f23e19b'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3441028
+project-id = 331936

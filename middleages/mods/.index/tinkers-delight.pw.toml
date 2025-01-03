@@ -1,0 +1,16 @@
+filename = "Tinkers' Delight-1.16.5FORGE-1.0.2.jar"
+name = "Tinkers' Delight"
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '9594d714ee0b1908444c34906465803a74ff8e42c0addb00486995ea56b478ecba703d0609578fa2f35f41dadfb3291d445ef01d99817c9fc445a0ff1c11f0fd'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/Y4vhKn2h/versions/cBUlWCSR/Tinkers%27 Delight-1.16.5FORGE-1.0.2.jar'
+
+[update.modrinth]
+mod-id = 'Y4vhKn2h'
+version = 'cBUlWCSR'

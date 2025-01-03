@@ -1,0 +1,16 @@
+filename = 'ImprovedBackpacks-1.6.2.1.jar'
+name = 'Improved Backpacks'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '950951ecb73b4bf96488f9d54bdaea38a7d7d09c'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3709355
+project-id = 270457

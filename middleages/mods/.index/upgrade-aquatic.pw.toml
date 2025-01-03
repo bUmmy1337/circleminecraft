@@ -1,0 +1,16 @@
+filename = 'upgrade_aquatic-1.16.5-3.1.2.jar'
+name = 'Upgrade Aquatic'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '63ceccb33e9a43fe51f69f4ee063d5a883bd882d7f4b9463c8b59bf62220a03f195c9ac098acf0c9609a78f8712d3630d1cf519951218a0b43efd919b7a4ec52'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/gTuTFFyz/versions/1sFZQHHt/upgrade_aquatic-1.16.5-3.1.2.jar'
+
+[update.modrinth]
+mod-id = 'gTuTFFyz'
+version = '1sFZQHHt'

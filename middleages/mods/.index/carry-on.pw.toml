@@ -1,0 +1,16 @@
+filename = 'carryon-1.16.5-1.15.6.24.jar'
+name = 'Carry On'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '50674c89c7cf7e9dd318924c5ce895e4bfdf6e0a0f2cc4c5ba780d00c745ec56d697625b741999cd23088dd9f5ff9b55d2f91786a3562dd59cbb09cc374bb0ce'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/joEfVgkn/versions/LwNYnVxa/carryon-1.16.5-1.15.6.24.jar'
+
+[update.modrinth]
+mod-id = 'joEfVgkn'
+version = 'LwNYnVxa'

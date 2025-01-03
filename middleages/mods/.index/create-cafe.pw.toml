@@ -1,0 +1,16 @@
+filename = 'createcafe-1.16.5-2.4.jar'
+name = 'Create Cafe'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'ab9739ddd5d2e807ff3963281cc68d228a02f2e5'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 3785713
+project-id = 542235

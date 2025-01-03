@@ -1,0 +1,16 @@
+filename = 'mcw-paintings-1.0.5-1.16.5forge.jar'
+name = "Macaw's Paintings"
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '27dd473b41119fac0a43a0ee3cd7ff9d0a8c142f7b7dd5c482f83e111d135dbccd5b1d05759a7cb600caf2702ccf809dc7ce630db5e3e104339fc645c172ef85'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/okE6QVAY/versions/tIaZ14oC/mcw-paintings-1.0.5-1.16.5forge.jar'
+
+[update.modrinth]
+mod-id = 'okE6QVAY'
+version = 'tIaZ14oC'

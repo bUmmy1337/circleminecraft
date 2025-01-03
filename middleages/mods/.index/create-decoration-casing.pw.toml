@@ -1,0 +1,16 @@
+filename = 'Create Deco Casing 2.0.0 1.16.5.jar'
+name = 'Create Decoration Casing'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.16.5' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '51a0b010033ea0bc1f624c3cac6802cce230d02a'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4440273
+project-id = 782293
