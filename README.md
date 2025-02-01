@@ -4,7 +4,7 @@
 
 <p align="center", id="description">Модпаки для игры на сервере Circle Minecraft, а также для личного использования</p>
 
-<p align="center"><img src="https://img.shields.io/badge/Military-release-green" alt="shields"><img src="https://img.shields.io/badge/Middle%20Ages-work_in_progress-yellow" alt="shields"></p>
+<p align="center"><img src="https://img.shields.io/badge/Military-release-green" alt="shields"><img src="https://img.shields.io/badge/Middle%20Ages-release-green" alt="shields"></p>
 
 > [!TIP]
 > Обновляйте сборку регулярно, иначе могут быть проблемы с заходом на сервер и баги в одиночной игре.
