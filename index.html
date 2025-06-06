@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CircleMC - Premium Modded Minecraft Server</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0a0a;
+            --secondary-dark: #1a1a1a;
+            --card-dark: #1e1e1e;
+            --border-dark: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --accent-green: #00ff88;
+            --accent-green-soft: #00cc6a;
+            --accent-green-dark: #00aa55;
+            --gradient-primary: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --gradient-card: linear-gradient(145deg, #1e1e1e 0%, #2a2a2a 100%);
+            --gradient-accent: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.5);
+            --shadow-accent: 0 4px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-dark);
+    transition: all 0.3s ease;
+}
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: var(--gradient-primary);
+    overflow: hidden;
+    /* Убираем transform который мешает */
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-accent {
+            color: var(--accent-green);
+            display: block;
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-accent);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            border: 2px solid var(--border-dark);
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            background: var(--gradient-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-dark);
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0, 255, 136, 0.1) 50%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-visual-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-visual-icon {
+            font-size: 4rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Sections */
+        section {
+    padding: 6rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative; /* Добавляем для правильного позиционирования */
+}
+#instructions {
+    margin-top: 0;
+    padding-top: 8rem; /* Увеличиваем отступ сверху */
+}
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Instructions Grid */
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .instruction-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Убираем transform по умолчанию */
+}
+
+        .instruction-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+        }
+
+        .instruction-card:hover {
+    transform: translateY(-5px); /* Только при hover */
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+        .instruction-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .instruction-card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .instruction-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            background: transparent;
+            border: 2px solid var(--border-dark);
+            color: var(--text-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--secondary-dark);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            border: 1px solid var(--border-dark);
+            margin: 4rem 0;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--gradient-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.02);
+        }
+
+        .play-button {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-accent);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Screenshots Gallery */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .screenshot-card {
+    aspect-ratio: 16/10;
+    background: var(--gradient-card);
+    border-radius: 20px;
+    border: 1px solid var(--border-dark);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Убираем постоянный transform */
+}
+.screenshot-card:hover {
+    transform: translateY(-8px); /* Только при hover */
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0, 255, 136, 0.05) 50%, transparent 70%);
+        }
+
+        .screenshot-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            z-index: 2;
+        }
+
+        .screenshot-title {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+            z-index: 2;
+        }
+
+        /* Server Info */
+        .server-info {
+            background: var(--secondary-dark);
+            border-radius: 30px;
+            padding: 4rem;
+            border: 1px solid var(--border-dark);
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .server-ip-container {
+            background: var(--card-dark);
+            border: 2px solid var(--border-dark);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .server-ip-container:hover {
+            border-color: var(--accent-green);
+            box-shadow: var(--shadow-accent);
+        }
+
+        .server-ip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .server-version {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .copy-hint {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Убираем постоянный transform */
+}
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+    transform: translateY(-5px); /* Только при hover */
+    box-shadow: var(--shadow-strong);
+}
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gradient-card);
+            border-radius: 30px;
+            padding: 4rem;
+            border: 1px solid var(--border-dark);
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+
+        .stat-value {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            border-top: 1px solid var(--border-dark);
+            padding: 4rem 2rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .footer-section h4 {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-dark);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-visual {
+    position: relative;
+    height: 600px;
+    background: var(--gradient-card);
+    border-radius: 20px;
+    border: 1px solid var(--border-dark);
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+    /* Убираем floating анимацию которая может мешать */
+}
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-accent {
+                font-size: 3.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-accent {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .instructions-grid,
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .video-section,
+            .server-info,
+            .stats-section {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(20px); /* Уменьшаем смещение */
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-dark);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-green);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">CircleMC</div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#instructions">Установка</a></li>
+                <li><a href="#screenshots">Галерея</a></li>
+                <li><a href="#features">Особенности</a></li>
+                <li><a href="#contact">Подключение</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-accent">CircleMC</span>
+                    Премиальный игровой опыт
+                </h1>
+                <p class="hero-subtitle">
+                    Погрузитесь в мир безграничных возможностей с нашим премиальным модовым сервером. 
+                    Технологии, магия и приключения ждут вас.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Активных игроков</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">13</span>
+                        <span class="stat-label">Сборок сделано</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Аптайм</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#instructions" class="btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Начать играть
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Узнать больше
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-visual-content">
+                    <div class="hero-visual-icon pulse-animation">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 style="font-family: 'Unbounded', sans-serif; margin-bottom: 1rem;">Модовый сервер</h3>
+                    <p style="color: var(--text-secondary);">100+ модов • Стабильная работа • Активное сообщество</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section id="instructions">
+        <div class="section-header">
+            <h2 class="section-title">Быстрый старт</h2>
+            <p class="section-subtitle">
+                Следуйте простым шагам для подключения к серверу и начала игры
+            </p>
+        </div>
+
+        <div class="instructions-grid">
+            <div class="instruction-card animate-on-scroll">
+                <div class="instruction-number">1</div>
+                <h3>Установка лаунчера</h3>
+                <p>Скачайте и установите рекомендуемый лаунчер для модифицированного Minecraft. Мы рекомендуем использовать PrismLauncher (лицензия) или ElyPrism (пиратка) для лучшей совместимости.</p>
+                <a href="https://github.com/PrismLauncher/PrismLauncher/releases/download/9.4/PrismLauncher-Windows-MSVC-Setup-9.4.exe" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Скачать PrismLauncher
+                </a>
+                <a href="https://github.com/ElyPrismLauncher/ElyPrismLauncher/releases/download/9.4/ElyPrismLauncher-Windows-MSVC-Setup-9.4.exe" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Скачать ElyPrism
+                </a>
+            </div>
+
+            <div class="instruction-card animate-on-scroll">
+                <div class="instruction-number">2</div>
+                <h3>Загрузка сборки</h3>
+                <p>Скачайте официальную сборку модов CircleMC. Сборка содержит все необходимые моды, конфигурации и оптимизации для комфортной игры.</p>
+                <a href="https://github.com/bUmmy1337/circleminecraft/releases/download/middleages-4.0.2_rethinked/Middle.Ages.4.2.0.-.Rethinked.mrpack" class="download-btn">
+                                        <i class="fas fa-download"></i>
+                    Скачать сборку .mrpack
+                </a>
+                <a href="https://github.com/bUmmy1337/circleminecraft/releases/download/middleages-4.0.2_rethinked/Middle.Ages.4.2.0.-.Rethinked.zip" class="download-btn">
+                                        <i class="fas fa-download"></i>
+                    Скачать сборку .zip
+                </a>
+            </div>
+
+            <div class="instruction-card animate-on-scroll">
+                <div class="instruction-number">3</div>
+                <h3>Импорт в лаунчер</h3>
+                <p>Импортируйте скачанную сборку в ваш лаунчер. Добавить сборку → Импорт → Обзор. Выберите скачанный файл сборки.</p>
+                <a href="#" class="download-btn">
+                    <i class="fas fa-book"></i>
+                    Подробная инструкция
+                </a>
+            </div>
+
+            <div class="instruction-card animate-on-scroll">
+                <div class="instruction-number">4</div>
+                <h3>Подключение к серверу</h3>
+                <p>Запустите игру с установленной сборкой и подключитесь к серверу, используя наш IP-адрес. Добро пожаловать в мир CircleMC!</p>
+                <a href="#contact" class="download-btn">
+                    <i class="fas fa-server"></i>
+                    Получить IP
+                </a>
+            </div>
+        </div>
+
+        <!-- Video Tutorial -->
+        <div class="video-section animate-on-scroll">
+            <h3 style="font-family: 'Unbounded', sans-serif; font-size: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+                Видео-инструкция
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">
+                Пошаговое руководство по установке и настройке
+            </p>
+            <div class="video-container">
+                <div class="video-placeholder" onclick="playVideo()">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots">
+        <div class="section-header">
+            <h2 class="section-title">Галерея сервера</h2>
+            <p class="section-subtitle">
+                Взгляните на удивительные постройки и локации нашего сервера
+            </p>
+        </div>
+
+        <div class="screenshots-grid">
+            <div class="screenshot-card animate-on-scroll">
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-home screenshot-icon"></i>
+                    <h4 class="screenshot-title">Спавн сервера</h4>
+                </div>
+            </div>
+
+            <div class="screenshot-card animate-on-scroll">
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-industry screenshot-icon"></i>
+                    <h4 class="screenshot-title">Индустриальные комплексы</h4>
+                </div>
+            </div>
+
+            <div class="screenshot-card animate-on-scroll">
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-magic screenshot-icon"></i>
+                    <h4 class="screenshot-title">Магические постройки</h4>
+                </div>
+            </div>
+
+            <div class="screenshot-card animate-on-scroll">
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-city screenshot-icon"></i>
+                    <h4 class="screenshot-title">Города игроков</h4>
+                </div>
+            </div>
+
+            <div class="screenshot-card animate-on-scroll">
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-mountain screenshot-icon"></i>
+                    <h4 class="screenshot-title">Природные локации</h4>
+                </div>
+            </div>
+
+            <div class="screenshot-card animate-on-scroll">
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-rocket screenshot-icon"></i>
+                    <h4 class="screenshot-title">Невероятные технологии</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header">
+            <h2 class="section-title">Особенности сервера</h2>
+            <p class="section-subtitle">
+                Что делает CircleMC особенным и почему стоит выбрать именно нас
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3>Сборка модов</h3>
+                <p>Мы лично создаём первоклассные сборки для нашего сервера и наших игроков.</p>
+            </div>
+
+
+            <div class="feature-card animate-on-scroll">
+                <i class="fas fa-users feature-icon"></i>
+                <h3>Активное сообщество</h3>
+                <p>Дружелюбные игроки, опытная администрация, регулярные ивенты и конкурсы. Помощь новичкам гарантирована.</p>
+            </div>
+
+
+            <div class="feature-card animate-on-scroll">
+                <i class="fas fa-tachometer-alt feature-icon"></i>
+                <h3>Высокая производительность</h3>
+                <p>Мощное серверное оборудование, оптимизированные конфигурации и стабильная работа 24/7 без лагов.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll">
+                <i class="fas fa-headset feature-icon"></i>
+                <h3>Техническая поддержка</h3>
+                <p>Быстрая и качественная поддержка игроков. Решаем любые вопросы и проблемы в кратчайшие сроки.</p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section animate-on-scroll">
+            <div class="section-header" style="margin-bottom: 3rem;">
+                <h3 style="font-family: 'Unbounded', sans-serif; font-size: 2rem; color: var(--text-primary);">
+                    Статистика сервера
+                </h3>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value">10+</span>
+                    <span class="stat-description">Активных игроков</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">100+</span>
+                    <span class="stat-description">Модов в сборке</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">99%</span>
+                    <span class="stat-description">Время работы</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">3+</span>
+                    <span class="stat-description">Года серверу</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Info Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Подключение к серверу</h2>
+            <p class="section-subtitle">
+                Вся необходимая информация для подключения к CircleMC
+            </p>
+        </div>
+
+        <div class="server-info animate-on-scroll">
+            <h3 style="font-family: 'Unbounded', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">
+                IP адрес сервера
+            </h3>
+            
+            <div class="server-ip-container" onclick="copyIP()">
+                <div class="copy-hint">
+                    <i class="fas fa-copy"></i> Нажмите для копирования
+                </div>
+                <div class="server-ip">circlemc.ru</div>
+                <div class="server-version">Версия: 1.20.1 • Forge • 100+ модов</div>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-top: 2rem; font-size: 1.1rem;">
+                Убедитесь, что у вас установлена наша сборка модов перед подключением к серверу
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>CircleMC</h3>
+                <p>Премиальный модовый сервер Minecraft с уникальным игровым опытом. Присоединяйтесь к нашему сообществу и откройте для себя мир безграничных возможностей.</p>
+                <div class="social-links">
+                    <a href="https://discord.gg/XHHFaAxeGc" class="social-link" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="social-link" title="VKontakte">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="https://t.me/circlemc_bot" class="social-link" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="social-link" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Быстрые ссылки</h4>
+                <ul class="footer-links">
+                    <li><a href="#instructions">Инструкция по установке</a></li>
+                    <li><a href="#screenshots">Галерея</a></li>
+                    <li><a href="#features">Особенности</a></li>
+                    <li><a href="#contact">Подключение</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="https://discord.gg/XHHFaAxeGc">Правила сервера</a></li>
+                    <li><a href="https://t.me/circlemc_bot">Техническая поддержка</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="https://shop.circlemc.ru">Донат</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 CircleMC. Все права защищены. Создано bUmmy с ❤️ для игрового сообщества.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+    threshold: 0.15, // Увеличиваем threshold
+    rootMargin: '0px 0px -30px 0px' // Уменьшаем отступ
+};
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+        // Не убираем класс при выходе из зоны видимости
+        // else {
+        //     entry.target.classList.remove('visible');
+        // }
+    });
+}, observerOptions);
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+});
+
+        // Copy IP to clipboard
+        function copyIP() {
+            const ip = 'circlemc.ru';
+            navigator.clipboard.writeText(ip).then(() => {
+                const container = document.querySelector('.server-ip-container');
+                const originalBorder = container.style.borderColor;
+                
+                container.style.borderColor = 'var(--accent-green)';
+                container.style.boxShadow = 'var(--shadow-accent)';
+                
+                const hint = container.querySelector('.copy-hint');
+                const originalText = hint.innerHTML;
+                hint.innerHTML = '<i class="fas fa-check"></i> IP скопирован!';
+                
+                setTimeout(() => {
+                    container.style.borderColor = originalBorder;
+                    container.style.boxShadow = '';
+                    hint.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('IP адрес: circlemc.ru');
+            });
+        }
+
+        // Video placeholder functionality
+        function playVideo() {
+            // Here you can implement actual video playback
+            // For now, we'll show an alert
+            alert('Скоро здесь будет воспроизводиться видео-инструкция по установке');
+        }
+
+        // Header background on scroll
+        window.addEventListener('scroll', throttle(() => {
+    const header = document.querySelector('header');
+    const scrolled = window.pageYOffset;
+    
+    if (scrolled > 100) {
+        header.style.background = 'rgba(10, 10, 10, 0.98)';
+        header.style.backdropFilter = 'blur(25px)';
+    } else {
+        header.style.background = 'rgba(10, 10, 10, 0.95)';
+        header.style.backdropFilter = 'blur(20px)';
+    }
+}, 16));
+
+        // Screenshot modal functionality
+        document.querySelectorAll('.screenshot-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Here you can implement a modal for enlarged screenshots
+                const title = this.querySelector('.screenshot-title').textContent;
+                alert(`Открыть увеличенный скриншот: ${title}`);
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            // Toggle mobile menu visibility
+            // This is a basic implementation - you might want to create a proper mobile menu
+            alert('Мобильное меню (требует дополнительной реализации)');
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.feature-card, .instruction-card').forEach(card => {
+    // Убираем эти обработчики которые ломали позиционирование
+    // Оставляем только CSS hover эффекты
+});
+
+// Убираем проблемный параллакс для hero
+// window.addEventListener('scroll', () => {
+//     const scrolled = window.pageYOffset;
+//     const parallax = document.querySelector('.hero');
+//     const speed = scrolled * 0.5;
+//     
+//     if (parallax) {
+//         parallax.style.transform = `translateY(${speed}px)`;
+//     }
+// });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '') + 
+                                         (element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : '') + 
+                                         (element.textContent.includes('%') ? '%' : '');
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValues = entry.target.querySelectorAll('.stat-value, .stat-number');
+                    statValues.forEach(stat => {
+                        const text = stat.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        if (number && !stat.classList.contains('animated')) {
+                            stat.classList.add('animated');
+                            stat.textContent = '0' + text.replace(/[0-9]/g, '');
+                            animateCounter(stat, number);
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stats-section, .hero-stats').forEach(section => {
+            statsObserver.observe(section);
+        });
+
+        // Dynamic typing effect for hero title (optional enhancement)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn-primary, .btn-secondary, .download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floating {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-8px); /* Уменьшаем амплитуду */
+    }
+}
+.floating {
+    animation: floating 4s ease-in-out infinite; /* Замедляем */
+}
+            
+            @keyframes floating {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+            
+            .glow {
+                box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add floating animation to hero visual
+        document.querySelector('.hero-visual').classList.add('floating');
+
+        // Form validation (if you add contact forms later)
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Lazy loading for images (when you add real screenshots)
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Initialize lazy loading
+        lazyLoadImages();
+
+        // Performance optimization: Throttle scroll events
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Apply throttling to scroll events
+        window.addEventListener('scroll', throttle(() => {
+            // Your scroll-based animations here
+        }, 16));
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close any open modals
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            }
+        });
+
+        // Accessibility improvements
+        document.querySelectorAll('button, a').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.classList.add('glow');
+            });
+            
+            element.addEventListener('blur', function() {
+                this.classList.remove('glow');
+            });
+        });
+
+        // Console easter egg
+        console.log(`
+        ╔═══════════════════════════════════════╗
+        ║              CircleMC                 ║
+        ║         Premium Minecraft Server      ║
+        ║                                       ║
+        ║  🎮 IP: circlemc.ru                  ║
+        ║  🚀 Version: 1.20.1                  ║
+        ║  ⚡ 100+ Mods                        ║
+        ║                                       ║
+        ║  Добро пожаловать в консоль!          ║
+        ╚═══════════════════════════════════════╝
+        `);
+    </script>
+</body>
+</html>
